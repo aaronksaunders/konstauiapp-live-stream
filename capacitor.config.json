@@ -1,0 +1,6 @@
+{
+  "appId": "com.konstauiapp",
+  "appName": "konstauiapp",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
