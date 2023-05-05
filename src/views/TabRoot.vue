@@ -14,9 +14,7 @@
         <template v-if="isTabbarLabels" #label> Home </template>
         <template v-if="isTabbarIcons" #icon>
           <k-icon>
-            <template>
               <EnvelopeFill class="w-7 h-7" />
-            </template>
           </k-icon>
         </template>
       </k-tabbar-link>
@@ -27,9 +25,7 @@
         <template v-if="isTabbarLabels" #label> About </template>
         <template v-if="isTabbarIcons" #icon>
           <k-icon>
-            <template>
               <Calendar class="w-7 h-7" />
-            </template>
           </k-icon>
         </template>
       </k-tabbar-link>
