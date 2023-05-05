@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import TabRoot from '../views/TabRoot.vue'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -6,7 +7,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect : '/home'
+      redirect : '/tabs'
+    },
+    {
+      path: '/tabs',
+      name: 'tabs',
+      component: TabRoot
     },
     {
       path: '/home',

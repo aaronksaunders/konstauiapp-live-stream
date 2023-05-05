@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "ionic:build": "npm run build",
@@ -17,6 +17,7 @@
     "@capacitor/ios": "4.8.0",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
+    "framework7-icons": "^5.0.5",
     "konsta": "^2.0.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

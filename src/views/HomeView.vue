@@ -7,17 +7,17 @@ const router = useRouter();
 </script>
 
 <template>
-  <k-page>
-    <k-navbar title="My App">
+  <!-- <k-page> -->
+    <!-- <k-navbar title="My App">
       <template #left>
         <k-link navbar @click="() => toggleMenu()"> Menu </k-link>
       </template>
-    </k-navbar>
-    <k-block class="p-8" >
+    </k-navbar> -->
+    <div class="p-8" >
       <div class="text-2xl m-2">Here comes my app</div>
       <k-button class="!w-32" @click="router.push('/detail')"
         >Button</k-button
       >
-    </k-block>
-  </k-page>
+    </div>
+  <!-- </k-page> -->
 </template>
