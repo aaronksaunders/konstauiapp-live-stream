@@ -9,7 +9,7 @@ import './index.css'
   <k-provider>
     <k-app  theme="ios" safe-area >
       <main-menu></main-menu>
-      <RouterView />
+      <RouterView  />
     </k-app>
   </k-provider>
 </template>

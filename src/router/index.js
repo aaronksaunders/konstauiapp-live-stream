@@ -1,41 +1,49 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import TabRoot from '../views/TabRoot.vue'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import TabRoot from "../views/TabRoot.vue";
+import HomeView from "../views/HomeView.vue";
+import AboutView from "../views/AboutView.vue";
+import DetailView from "../views/DetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      redirect : '/tabs'
+      path: "/",
+      redirect: "/tabs/home",
     },
     {
-      path: '/tabs',
-      name: 'tabs',
-      component: TabRoot
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/detail',
-      name: 'detail',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DetailView.vue')
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
-})
+      path: "/tabs",
+      component: TabRoot,
+      name: "tabs",
+      children: [
+        {
+          path: "home-detail",
+          name: "home-detail",
+          components: {
+            default: TabRoot,
+            tabs: DetailView
+          },
+        },
+        {
+          path: "home",
+          name: "home",
+          components: {
+            default: TabRoot,
+            tabs: HomeView,
+          }
+        },
+        {
+          path: "about",
+          name: "about",
 
-export default router
+          components: {
+            default: TabRoot,
+            tabs: AboutView,
+          },
+        },
+      ],
+    },
+  ],
+});
+
+export default router;

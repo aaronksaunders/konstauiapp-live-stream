@@ -2,8 +2,21 @@
 import { kApp, kPage, kNavbar, kBlock, kLink, kButton } from "konsta/vue";
 import { useMainMenu } from "../composables/useMainMenu";
 import { useRouter } from "vue-router";
-const { toggleMenu } = useMainMenu();
+import { onMounted, computed} from 'vue'
+
 const router = useRouter();
+
+
+const matchedRoute = computed(() => {
+    debugger
+    return router?.currentRoute?.value?.matched.find(route => route.name === 'tabs')
+  })
+
+  onMounted(() => {
+    if (matchedRoute.value) {
+      console.log(matchedRoute.value.components.default.name) // Output: "View1Component"
+    }
+  })
 </script>
 
 <template>
@@ -15,7 +28,7 @@ const router = useRouter();
     </k-navbar> -->
     <div class="p-8" >
       <div class="text-2xl m-2">Here comes my app</div>
-      <k-button class="!w-32" @click="router.push('/detail')"
+      <k-button class="!w-32" @click="router.push('/tabs/home-detail')"
         >Button</k-button
       >
     </div>

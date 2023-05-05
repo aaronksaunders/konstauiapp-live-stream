@@ -1,12 +1,25 @@
-import { ref, watch } from "vue";
-import { useRouter } from "vue-router";
+import { computed, onMounted, ref, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 const selectedTabRef = ref("home");
 const pageTitleRef = ref("home");
+
+const router = useRouter();
 
 export const useTabs = () => {
   const setSelected = (tab) => {
     selectedTabRef.value = tab;
   };
+
+  const matchedRoute = computed(() => {
+    debugger
+    return router?.currentRoute?.value?.matched.find(route => route.name === 'tabs')
+  })
+
+  onMounted(() => {
+    if (matchedRoute.value) {
+      console.log(matchedRoute.value.components.default.name) // Output: "View1Component"
+    }
+  })
 
   watch(
     () => selectedTabRef.value,
@@ -22,7 +35,7 @@ export const useTabs = () => {
   return {
     // props
     selected: selectedTabRef,
-    pageTitle : pageTitleRef,
+    pageTitle: pageTitleRef,
     // methods
     setSelected,
   };
