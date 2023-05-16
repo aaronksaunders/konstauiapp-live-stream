@@ -14,8 +14,8 @@
         :link-props="{ to: '/tabs/home' }"
         component="router-link"
       >
-        <template v-if="isTabbarLabels" #label> Home </template>
-        <template v-if="isTabbarIcons" #icon>
+        <template #label> Home </template>
+        <template #icon>
           <k-icon>
             <EnvelopeFill class="w-7 h-7" />
           </k-icon>
@@ -28,8 +28,8 @@
         :link-props="{ to: '/tabs/about' }"
         component="router-link"
       >
-        <template v-if="isTabbarLabels" #label> About </template>
-        <template v-if="isTabbarIcons" #icon>
+        <template #label> About </template>
+        <template #icon>
           <k-icon>
             <Calendar class="w-7 h-7" />
           </k-icon>
@@ -41,18 +41,9 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import {
-  kPage,
-  kNavbar,
-  kTabbar,
-  kTabbarLink,
-  kIcon,
-} from "konsta/vue";
+import { kPage, kNavbar, kTabbar, kTabbarLink, kIcon } from "konsta/vue";
 import { EnvelopeFill, Calendar } from "framework7-icons/vue";
 import { useTabs } from "../composables/useTabs.js";
 
 const { selected, setSelected, pageTitle } = useTabs();
-
-const isTabbarLabels = ref(true);
-const isTabbarIcons = ref(true);
 </script>
