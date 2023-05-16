@@ -2,7 +2,11 @@
 import { kApp, kPage, kNavbar, kBlock, kNavbarBackLink } from "konsta/vue";
 import { useMainMenu } from "../composables/useMainMenu";
 import { useRouter } from "vue-router";
+import { useTabs } from "../composables/useTabs";
+
+//
 const { toggleMenu } = useMainMenu();
+const { selected } = useTabs()
 const router = useRouter();
 
 </script>
@@ -16,6 +20,7 @@ const router = useRouter();
     </k-navbar>
     <k-block>
       <p>Here comes my app</p>
+      <p>Selected Tab: {{ selected  }}</p>
     </k-block>
   </k-page>
 </template>

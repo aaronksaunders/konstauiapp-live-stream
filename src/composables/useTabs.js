@@ -10,16 +10,6 @@ export const useTabs = () => {
     selectedTabRef.value = tab;
   };
 
-  const matchedRoute = computed(() => {
-    debugger
-    return router?.currentRoute?.value?.matched.find(route => route.name === 'tabs')
-  })
-
-  onMounted(() => {
-    if (matchedRoute.value) {
-      console.log(matchedRoute.value.components.default.name) // Output: "View1Component"
-    }
-  })
 
   watch(
     () => selectedTabRef.value,
